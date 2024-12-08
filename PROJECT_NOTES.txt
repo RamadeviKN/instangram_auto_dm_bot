@@ -1,0 +1,101 @@
+Why We Chose Spring Boot and MongoDB
+Spring Boot:
+
+A lightweight framework that simplifies the creation of standalone, production-grade Spring-based applications.
+Provides built-in support for REST APIs, which is crucial for interacting with external services like the Instagram Graph API.
+Easy integration with security, schedulers, and microservices architecture.
+MongoDB:
+
+A NoSQL database well-suited for storing flexible, semi-structured data like user details, DM templates, and conversation logs.
+Schema-less design allows dynamic handling of different data structures (useful as user interactions may vary).
+Stores JSON-like documents, making it easy to integrate with Spring Boot's Spring Data MongoDB module.
+
+Create a Spring Boot Project:
+
+Project: Maven
+Language: Java
+Spring Boot: 3.4.0 (or latest)
+Dependencies:
+Spring Web (for building REST APIs)
+Spring Data MongoDB (for MongoDB integration)
+Spring Boot DevTools (for hot-reloading during development)
+Lombok (to reduce boilerplate code)
+
+Install MongoDB Locally:
+
+Start the MongoDB service:
+    mongod --dbpath /path/to/your/data/db
+
+Verify MongoDB is running:
+    mongo
+
+Add to PATH: a. Press Win + S and search for Environment Variables.
+b. Click Edit the system environment variables.
+c. In the System Properties window, click the Environment Variables button.
+d. In the System Variables section, select the Path variable and click Edit.
+e. Click New and paste the copied path (C:\Program Files\MongoDB\Server\6.0\bin).
+f. Click OK to save all changes.
+
+    mongod --version
+
+Start MongoDB Server:
+    mongod
+(This will start MongoDB on localhost:27017)
+
+mongo
+show dbs        # Lists all databases
+use <database>  # Switch to a specific database
+show collections # Lists collections in the selected database
+db.<collection>.find().pretty()  # View documents in a collection
+
+Test the Connection
+Now, run your Spring Boot application. You can test the connection by using a tool like Postman:
+
+POST request to http://localhost:8080/api/users with the body:
+
+{
+  "username": "john_doe",
+  "message": "Hello, this is a test message!"
+}
+
+GET request to http://localhost:8080/api/users/john_doe to retrieve the saved user.
+
+
+Tasks for MongoDB Create Collections:
+
+Start the MongoDB Server
+If it’s not already running, start the MongoDB server:
+
+mongod
+
+Open the MongoDB Shell
+In another Command Prompt window, open the MongoDB shell by typing:
+
+mongo
+
+Create a New Database
+Create a database called instagram_bot_db:
+
+use instagram_bot_db
+
+Create a Collection
+Create a collection called users to store user information:
+
+db.createCollection("users")
+
+Insert a Sample Document
+Insert a sample user document into the users collection:
+
+db.users.insertOne({
+    "username": "john_doe",
+    "instagramAccessToken": "fake_access_token_123",
+    "messageTemplate": "Hello, this is an automated message from our Instagram bot!"
+})
+
+Verify the Insertion
+Verify that the document was inserted successfully:
+
+db.users.find().pretty()
+
+
+

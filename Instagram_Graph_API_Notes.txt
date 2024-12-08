@@ -1,0 +1,51 @@
+Instagram Graph API for Business Accounts
+Since you are using a business account, you'll want to explore the Instagram Graph API, which is specifically designed for business and creator accounts.
+
+What Can You Do with Instagram Graph API?
+The Instagram Graph API offers many features, including:
+
+Account Management:
+Get information about your business account (e.g., profile details, media, insights).
+Manage and update account settings.
+Media Management:
+Retrieve media items (photos, videos, carousels).
+Post content to your feed (images, videos, and captions).
+Manage comment moderation (e.g., hide, delete, or reply to comments).
+Direct Messaging (IG Direct API):
+While the Instagram Graph API itself doesn’t directly allow for sending DMs, you can use Instagram's Messenger API for automated conversations through Instagram Direct (only available for business accounts).
+You can set up automated messaging when users interact with your business profile (e.g., via quick replies or template messages).
+Steps to Get Started with Instagram Graph API:
+Create a Facebook Developer Account:
+
+Go to Facebook for Developers.
+Set up an account and create a new app.
+Set Up Instagram Business Account:
+
+Ensure your Instagram account is a business or creator account.
+Link your Instagram account to a Facebook page (required for API access).
+Get Access Token:
+
+Generate an access token to authenticate API requests.
+You’ll use the Instagram Graph API Explorer to generate access tokens.
+Request API Permissions:
+
+For using the Graph API, you need to request permissions (e.g., instagram_basic, pages_show_list, instagram_manage_insights, etc.).
+Some permissions might require approval from Facebook.
+Explore the API Endpoints:
+
+Use the following endpoints to interact with your Instagram business account:
+Get Profile Information: /me/accounts – to get linked business accounts.
+Get Media: /me/media – retrieve media posted by the account.
+Insights: /me/insights – access insights and analytics for your media and account.
+Messaging: If you're interested in automated messaging, explore Instagram's Messenger API or Webhooks.
+Example of Using Instagram Graph API:
+http
+Copy code
+GET https://graph.instagram.com/me?fields=id,username,media_count&access_token=your_access_token
+This would return the profile information for your Instagram business account.
+
+Sending Messages with Instagram Graph API:
+For sending direct messages through Instagram Graph API, you'll need to set up Instagram Direct API through Facebook’s Messenger API (which is available to businesses). This involves more steps like setting up Webhooks, handling responses, and integrating it into your bot logic.
+
+*****IMP***********
+Meta App name: RKN Fashions Auto DM App
